@@ -1,0 +1,21 @@
+body {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    font-family: 'Hachi Maru Pop', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 94px;
+    padding: 12px;
+}
+
+#grid {
+    background-color: white;
+    height: 840px;
+    width: 840px;
+}
