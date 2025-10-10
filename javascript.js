@@ -6,14 +6,17 @@ function styleCell (cell, height) {
 }
 
 function createGrid (dimensions) {
-    let  dimValue = 0;
+    let  dimValue = 16;
 
-    if (dimensions != 0)
+    if (dimValue != dimensions)
         dimValue = dimensions;
-    else
-        dimValue = 16;
 
     const grid = document.getElementById("grid");
+
+    while (grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+    }
+
     const height = grid.offsetHeight;
     const cellHeight = height/dimValue;
 
@@ -37,11 +40,21 @@ function changeGrid () {
     const btn = document.getElementById("change-grid");
 
     btn.addEventListener("click", () => {
-        let newGrid = prompt("Enter a number between 0 and 100");
+        let newGrid = prompt("Enter a number between 1 and 100");
 
-        console.log(newGrid);
+        if (isNaN(newGrid))
+            newGrid = 16;
+
+        if (newGrid == 0)
+            newGrid = 1;
+
+        if(newGrid > 100)
+            newGrid = 100;
+
+        createGrid(newGrid);
     });
 }
 
-createGrid(0);
+createGrid(16);
 hoverEffect();
+changeGrid();
