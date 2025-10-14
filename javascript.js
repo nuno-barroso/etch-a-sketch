@@ -36,13 +36,26 @@ function hoverEffect () {
     });
 }
 
+function clearGrid () {
+    const btn = document.getElementById("clear-grid");
+
+    btn.addEventListener("click", () => {
+        const grid = document.getElementById("grid");
+        while (grid.firstChild) {
+            grid.removeChild(grid.firstChild);
+        }
+
+        createGrid(16);
+    })
+}
+
 function changeGrid () {
     const btn = document.getElementById("change-grid");
 
     btn.addEventListener("click", () => {
         let newGrid = prompt("Enter a number between 1 and 100");
 
-        if (isNaN(newGrid))
+        if (isNaN(newGrid) || newGrid == null)
             newGrid = 16;
 
         if (newGrid == 0)
@@ -58,3 +71,4 @@ function changeGrid () {
 createGrid(16);
 hoverEffect();
 changeGrid();
+clearGrid();
