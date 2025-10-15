@@ -32,7 +32,7 @@ function hoverEffect () {
     const grid = document.getElementById("grid");
 
     grid.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "purple";
+        event.target.style.backgroundColor = "grey";
     });
 }
 
