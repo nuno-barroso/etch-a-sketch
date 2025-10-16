@@ -5,6 +5,14 @@ function styleCell (cell, height) {
     return cell;
 }
 
+function randomRGB () {
+    let redValue = Math.round(Math.random() * 255);
+    let greenValue = Math.round(Math.random() * 255);
+    let blueValue = Math.round(Math.random() * 255);
+
+    return `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+}
+
 function createGrid (dimensions) {
     let  dimValue = 16;
 
@@ -72,3 +80,4 @@ createGrid(16);
 hoverEffect();
 changeGrid();
 clearGrid();
+console.log(randomRGB());
