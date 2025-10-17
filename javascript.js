@@ -38,9 +38,28 @@ function createGrid (dimensions) {
 
 function hoverEffect () {
     const grid = document.getElementById("grid");
+    let rainbowBtn = document.getElementById("rainbow");
+    let rainbowMode = false;
+    let clicks = 0;
+
+    rainbowBtn.addEventListener("click", () => {
+        rainbowMode = true;
+        rainbowBtn.style.backgroundColor = "rgb(231, 198, 155)";
+        clicks++;
+
+        if (clicks % 2 == 0) {
+            rainbowMode = false;
+            rainbowBtn.style.backgroundColor = "blanchedalmond";
+        }
+            
+    })
 
     grid.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "grey";
+        if (rainbowMode)
+            event.target.style.backgroundColor = randomRGB();
+        else
+            event.target.style.backgroundColor = "grey";
+
     });
 }
 
@@ -80,4 +99,3 @@ createGrid(16);
 hoverEffect();
 changeGrid();
 clearGrid();
-console.log(randomRGB());
